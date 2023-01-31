@@ -62,7 +62,7 @@ const reducer = (state = initialState, action) => {
 }
 
 // Async Call (using fetch)
-const fetchUsersAsyncAwait = () => {
+const fetchUsersFetch = () => {
   return (dispatch) => {
     dispatch(fetchUsersRequest())
 
@@ -82,7 +82,7 @@ const fetchUsersAsyncAwait = () => {
 }
 
 // Async Call (using async/await)
-const fetchUsersFetch = () => {
+const fetchUsersAsyncAwait = () => {
   return async (dispatch) => {
     dispatch(fetchUsersRequest())
 
