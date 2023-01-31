@@ -61,8 +61,8 @@ const reducer = (state = initialState, action) => {
   }
 }
 
-// Async Call
-const fetchUsers = () => {
+// Async Call (using fetch)
+const fetchUsersAsyncAwait = () => {
   return (dispatch) => {
     dispatch(fetchUsersRequest())
 
@@ -81,6 +81,21 @@ const fetchUsers = () => {
   }
 }
 
+// Async Call (using async/await)
+const fetchUsersFetch = () => {
+  return async (dispatch) => {
+    dispatch(fetchUsersRequest())
+
+    try {
+      const response = await fetch('https://jsonplaceholder.typicode.com/users/')
+      const users = await response.json()
+      dispatch(fetchUsersSuccess(users))
+    } catch {
+      dispatch(fetchUsersFailure(error.message))
+    }
+  }
+}
+
 const store = createStore(reducer, applyMiddleware(thunkMiddleware))
 store.subscribe(() => { console.log(store.getState()) })
-store.dispatch(fetchUsers())
+store.dispatch(fetchUsersAsyncAwait())
