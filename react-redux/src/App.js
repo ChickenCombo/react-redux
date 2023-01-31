@@ -8,13 +8,15 @@ import IceCreamContainer from './components/IceCreamContainer'
 import HooksIceCreamContainer from './components/HooksIceCreamContainer'
 import NewCakeContainer from './components/NewCakeContainer'
 import ItemContainer from './components/ItemContainer'
+import UserContainer from './components/UserContainer'
 
 const App = () => {
   return (
     <Provider store={store}>
       <div className='App'>
-        <ItemContainer cake />
-        <ItemContainer iceCream />
+        <UserContainer />
+        {/* <ItemContainer cake /> */}
+        {/* <ItemContainer iceCream /> */}
         {/* <NewCakeContainer /> */}
         {/* <HooksCakeContainer /> */}
         {/* <CakeContainer /> */}
